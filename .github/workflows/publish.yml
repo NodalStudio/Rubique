@@ -30,8 +30,8 @@ jobs:
       - name: Install wasm-bindgen-cli
         run: cargo install wasm-bindgen-cli
 
-      - name: Build WASM
-        run: deno task build
+      - name: Build WASM for JSR (non-inlined)
+        run: deno task build:jsr
 
       - name: Run tests
         run: deno task test

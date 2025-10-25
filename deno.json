@@ -1,6 +1,6 @@
 {
   "name": "@nodalstudio/rubique",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A high-performance mathematical and quantitative library, leveraging WebAssembly for efficient linear algebra and numerical computations",
   "license": "MIT",
   "compilerOptions": {
@@ -38,9 +38,10 @@
     "lint": "deno lint lib",
     "lint:fix": "deno fmt lib && deno lint --fix lib",
     "build": "deno run -A jsr:@deno/wasmbuild --out ./rs_lib/pkg --inline",
+    "build:jsr": "deno run -A jsr:@deno/wasmbuild --out ./rs_lib/pkg",
     "docs": "deno run -A ./scripts/build_docs.ts",
     "benchmark": "deno run --allow-write ./scripts/benchmark.ts",
-    "deploy": "deno task build && deno task test && deno task lint:fix && deno publish --allow-dirty"
+    "deploy": "deno task build:jsr && deno task test && deno task lint:fix && deno publish --allow-dirty"
   },
   "lint": {
     "rules": {
@@ -61,6 +62,7 @@
       "lib/**/*.ts",
       "rs_lib/pkg/*.js",
       "rs_lib/pkg/*.ts",
+      "rs_lib/pkg/*.wasm",
       "README.md",
       "LICENSE"
     ],
